@@ -1,26 +1,31 @@
 let fname = []
 let lname = []
 
-let fnameInput = document.getElementById("fname").nodeValue
-let lnameInput = document.getElementById("lname").nodeValue
+let fnameInput = document.getElementById("fname")
+let lnameInput = document.getElementById("lname")
+
+let test1 = fnameInput.value
+let test2 = lnameInput.value
 
 let messageBox = document.getElementById("display")
 
 function insert(){
-    fname.push(fnameInput.nodeValue)
-    lname.push(lnameInput.nodeValue)
+    fname.push(fnameInput.value)
+    lname.push(lnameInput.value)
 
     clearAndShow()
+
+    console.log("insert")
 }
 
 function clearAndShow(){
 
-    fnameInput.nodeValue = ""
-    lnameInput.nodeValue = ""
+    fnameInput.value = ""
+    lnameInput.value = ""
 
-    messageBox.innerHTML = ""
+    messageBox.innerHTML = "" + "<br/>"
 
-    messageBox.innerHTML += "First name:" + fname.join(", ") + "<br/>"
-    messageBox.innerHTML += "Last name:" + lname.join(", ") + "<br/>"
-    
+    messageBox.innerHTML += "First name: " + fname.join(", ") + "<br/>"
+    messageBox.innerHTML += "Last name: " + lname.join(", ") + "<br/>"
+
 }
