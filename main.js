@@ -1,0 +1,7 @@
+let arrayOfPeople = [
+    {
+        "Name": "",
+        "Surname": ""
+
+    }
+]
