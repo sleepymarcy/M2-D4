@@ -14,15 +14,24 @@
   
   </head>
   <body>
-    <header>It's Friday then it's Saturday, Sunday what</header>
-
+    <div class="container">
+      <h1>It's Friday then it's Saturday, Sunday what?!</h1>
+    </div>
+    <br><br><br>
     <div class="container" style="float: left">
-      <form action="/action_page.php">
+      <form>
+        <h3>Enter your teammates full names</h3>
+        <input id="fname" type="text" placeholder="First name">
+        <input id="lname" type="text" placeholder="Last name">
+        <input type="button" value="Save/Show" onclick="clearAndShow">
+        <!--
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Last name:</label>
         <input type="text" id="lname" name="lname"><br>
-        <input type="submit" value="Submit">
+        <input type="button" value="Save" onclick="insert()">
+        <input type="button" value="Show data" onclick="show()">
+        -->
       </form>
     </div>
   
