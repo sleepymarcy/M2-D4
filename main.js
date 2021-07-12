@@ -1,31 +1,73 @@
-let fname = []
-let lname = []
+const input = document.getElementById("myInput")
+const sums = document.getElementById("numberTeam")
+const output = document.getElementById("output")
+const buttons = document.getElementById("buttons")
+const reset = document.getElementById("reset")
+const container = document.querySelector(".container")
+const answer = document.querySelector(".hidden")
+const teams = document.querySelector(".teams")
 
-let fnameInput = document.getElementById("fname")
-let lnameInput = document.getElementById("lname")
+function getInputValue() {
+  const values = input.value
+  const total = sums.value
+  let person = values.split(",")
 
-let test1 = fnameInput.value
-let test2 = lnameInput.value
+  let random = person.sort(() => Math.random() - 0.5)
+  console.log(random);
 
-let messageBox = document.getElementById("display")
+  function chunk(array, size) {
+    if (array.length <= size) {
+      return [array]
+    }
+    return [array.slice(0, size), ...chunk(array.slice(size), size)]
+  }
 
-function insert(){
-    fname.push(fnameInput.value)
-    lname.push(lnameInput.value)
+  let team = chunk(random, total)
 
-    clearAndShow()
-
-    console.log("insert")
+  for (let i = 0; i < team.length; i++) {
+    output.innerHTML += `<p> Team ${i + 1}: ${team[i]} </p>`
+  }
 }
 
-function clearAndShow(){
+buttons.addEventListener("click", () => {
+  container.classList.toggle("hidden")
+  reset.classList.toggle("hidden")
+  answer.classList.toggle("hidden")
+  teams.classList.toggle("visible")
+});
 
-    fnameInput.value = ""
-    lnameInput.value = ""
+reset.addEventListener("click", () => {
+  location.reload()
+});
 
-    messageBox.innerHTML = "" + "<br/>"
+// let fname = []
+// let lname = []
 
-    messageBox.innerHTML += "First name: " + fname.join(", ") + "<br/>"
-    messageBox.innerHTML += "Last name: " + lname.join(", ") + "<br/>"
+// let fnameInput = document.getElementById("fname")
+// let lnameInput = document.getElementById("lname")
 
-}
+// let test1 = fnameInput.value
+// let test2 = lnameInput.value
+
+// let messageBox = document.getElementById("display")
+
+// function insert(){
+//     fname.push(fnameInput.value)
+//     lname.push(lnameInput.value)
+
+//     clearAndShow()
+
+//     console.log("insert")
+// }
+
+// function clearAndShow(){
+
+//     fnameInput.value = ""
+//     lnameInput.value = ""
+
+//     messageBox.innerHTML = "" + "<br/>"
+
+//     messageBox.innerHTML += "First name: " + fname.join(", ") + "<br/>"
+//     messageBox.innerHTML += "Last name: " + lname.join(", ") + "<br/>"
+
+// }
